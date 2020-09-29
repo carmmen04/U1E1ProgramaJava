@@ -1,0 +1,24 @@
+var fs = require('fs');
+var archivo = fs.readFileSync('C:/Users/CARMEN/Desktop/prueba.txt', 'utf-8'); //En esta línea se lee el txt.
+
+var frase = "El Lado Oscuro De La Luna"; //Se crea una variable que contenga la frase ordenada.
+var espacio = " "; //espacio
+var fCorrecta = "", //ordenada
+
+    original = frase.split(espacio);
+incorrecta = archivo.split(espacio);
+
+aux = [];
+
+for (var i = 0; i < incorrecta.length; i++) {
+    for (var j = 0; j < incorrecta.length; j++) {
+        if (incorrecta[i] == original[j]) {
+            aux[j] = incorrecta[i];
+        }
+    }
+}
+
+for (var i = 0; i < aux.length; i++) {
+    fCorrecta += aux[i] + " ";
+    console.log(fCorrecta);
+}
