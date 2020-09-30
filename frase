@@ -1,0 +1,43 @@
+package com.mycompany.fraseordenada;
+import java.io.*;
+/**
+ *
+ * @author CARMEN
+ */
+public class Frase {
+ Frase() throws FileNotFoundException, IOException{
+ String FCorrecta ="El Lado Oscuro De La Luna";
+ String original[]= FCorrecta.split(" ");
+ 
+ String espacio [];
+ String aux[]= new String[original.length];
+ String Miruta= "C:/Users/CARMEN/Desktop/fraseJava.txt"; //En esta línea va la ruta del txt
+ String frase; //la variable para guardar la frase en desorden.
+ String completa="";
+ String correcta="";
+ 
+ FileReader filer = new FileReader(Miruta);
+ BufferedReader bufer = new BufferedReader(filer);
+ 
+ while((frase=bufer.readLine()) !=null){
+    completa =frase;
+    System.out.println("En desorden: "+frase);
+}
+  bufer.close();
+  
+  espacio =completa.split(" ");
+  
+  for(int i=0; i<espacio.length; i++){
+  for(int j=0; j<espacio.length; j++){
+  if(espacio[i].equals(original[j])){
+         aux[j] =espacio[i];
+        }
+    }
+}
+  for(int i=0; i<aux.length; i++){
+  correcta += aux[i]+" ";
+  System.out.println(" "+correcta);
+}
+ }
+ 
+}
